@@ -1,7 +1,7 @@
 MoceanAPI Client Library for PHP 
 ============================
 [![Latest Stable Version](https://img.shields.io/packagist/v/mocean/client.svg)](https://packagist.org/packages/mocean/client)
-[![Build Status](https://img.shields.io/travis/com/MoceanAPI/mocean-sdk-php.svg)](https://travis-ci.com/MoceanAPI/mocean-sdk-php)
+[![Build Status](https://travis-ci.com/MoceanAPI/mocean-sdk-php7.svg?branch=master)](https://travis-ci.com/MoceanAPI/mocean-sdk-php7)
 [![codecov](https://img.shields.io/codecov/c/github/MoceanAPI/mocean-sdk-php.svg)](https://codecov.io/gh/MoceanAPI/mocean-sdk-php)
 [![codacy](https://img.shields.io/codacy/grade/7a1e94f1c1ea40fdbfa362ecbbc4b2f3.svg)](https://app.codacy.com/project/MoceanAPI/mocean-sdk-php/dashboard)
 [![StyleCI](https://github.styleci.io/repos/138724921/shield?branch=master)](https://github.styleci.io/repos/138724921)
@@ -24,7 +24,7 @@ To use the client library you'll need to have [created a Mocean account][signup]
 To install the PHP client library using Composer.
 
 ```bash
-composer require mocean/client
+composer require mocean/client7
 ```
 
 ## Usage
@@ -78,7 +78,7 @@ Kindly visit [MoceanApi Docs][doc_main] for more usage
 
 This library is released under the [MIT License][license]
 
-[signup]: https://dashboard.moceanapi.com/register?medium=github&campaign=php-sdk
+[signup]: https://dashboard.moceanapi.com/register?medium=github&campaign=sdk-php
 [doc_main]: https://moceanapi.com/docs/?php
 [doc_sms]: https://moceanapi.com/docs/?php#send-sms
 [license]: LICENSE
