@@ -24,7 +24,7 @@ To use the client library you'll need to have [created a Mocean account][signup]
 To install the PHP client library using Composer.
 
 ```bash
-composer require mocean/client
+composer require mocean/client7
 ```
 
 ## Usage
