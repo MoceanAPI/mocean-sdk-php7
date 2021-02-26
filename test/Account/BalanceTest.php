@@ -18,7 +18,7 @@ class BalanceTest extends AbstractTesting
     protected $jsonResponse;
     protected $xmlResponse;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->mockJsonResponseStr = $this->getResponseString('balance.json');
         $this->mockXmlResponseStr = $this->getResponseString('balance.xml');
