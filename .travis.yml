@@ -1,5 +1,5 @@
 language: php
-dist: trusty
+dist: biotic
 
 php:
   - 7.1
