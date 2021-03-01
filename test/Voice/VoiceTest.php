@@ -20,7 +20,7 @@ class VoiceTest extends AbstractTesting
     protected $jsonResponse;
     protected $xmlResponse;
 
-    protected function setUp()
+    protected function setUp():void
     {
         $this->mockJsonResponseStr = $this->getResponseString('voice.json');
         $this->mockXmlResponseStr = $this->getResponseString('voice.xml');
