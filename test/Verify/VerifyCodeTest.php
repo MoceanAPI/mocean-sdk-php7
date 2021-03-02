@@ -18,7 +18,7 @@ class VerifyCodeTest extends AbstractTesting
     protected $jsonResponse;
     protected $xmlResponse;
 
-    protected function setUp()
+    protected function setUp():void
     {
         $this->mockJsonResponseStr = $this->getResponseString('verify_code.json');
         $this->mockXmlResponseStr = $this->getResponseString('verify_code.xml');
@@ -66,6 +66,8 @@ class VerifyCodeTest extends AbstractTesting
 
     public function testObjectErrorWhenCreateFromResponseWithStatus0()
     {
+        $this->expectNotToPerformAssertions();
+
         try {
             \Mocean\Verify\VerifyCode::createFromResponse($this->getResponseString('error_response.json'), $this->defaultVersion);
             $this->fail();

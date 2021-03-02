@@ -81,6 +81,8 @@ class ClientTest extends AbstractTesting
      */
     public function testRecordingWithEmptyBody()
     {
+        $this->expectException(\Mocean\Client\Exception\Exception::class);
+
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         $client->voice()->recording('xxx-xxx-xxx-xxx');
@@ -91,6 +93,8 @@ class ClientTest extends AbstractTesting
      */
     public function testRecordingWithErrorResponse()
     {
+        $this->expectException(\Mocean\Client\Exception\Exception::class);
+
         $mockHttp = $this->makeMockHttpClient($this->getResponse('error_response.json'));
 
         $client = $this->makeMoceanClientWithMockHttpClient($mockHttp);
@@ -103,6 +107,8 @@ class ClientTest extends AbstractTesting
      */
     public function testCallParamsNotImplementModelInterfaceAndNotArray()
     {
+        $this->expectException(\RuntimeException::class);
+
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         $client->voice()->call('inputString');
@@ -114,6 +120,9 @@ class ClientTest extends AbstractTesting
      */
     public function testCallRequiredRequestParamNotPresent()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("missing expected key `mocean-to`");
+
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         $client->voice()->call([]);
@@ -121,6 +130,8 @@ class ClientTest extends AbstractTesting
 
     public function testResponseDataIsEmpty()
     {
+        $this->expectNotToPerformAssertions();
+
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         try {

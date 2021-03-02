@@ -75,6 +75,9 @@ class PlayTest extends AbstractTesting
      */
     public function testIfRequiredFieldNotSet()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("missing expected key `text` from Mocean\Voice\Mc\Say");
+
         $req = new \Mocean\Voice\Mc\Say();
         $req->getRequestData();
     }

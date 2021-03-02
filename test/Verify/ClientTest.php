@@ -113,6 +113,8 @@ class ClientTest extends AbstractTesting
      */
     public function testStartParamsNotImplementModelInterfaceAndNotArray()
     {
+        $this->expectException(\RuntimeException::class);
+
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         $client->verify()->start('inputString');
@@ -123,6 +125,8 @@ class ClientTest extends AbstractTesting
      */
     public function testCheckParamsNotImplementModelInterfaceAndNotArray()
     {
+        $this->expectException(\RuntimeException::class);
+
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         $client->verify()->check('inputString');
@@ -134,6 +138,8 @@ class ClientTest extends AbstractTesting
      */
     public function testStartRequiredRequestParamNotPresent()
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         $client->verify()->start([]);
@@ -145,6 +151,9 @@ class ClientTest extends AbstractTesting
      */
     public function testCheckRequiredRequestParamNotPresent()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("missing expected key `mocean-reqid`");
+
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         $client->verify()->check([]);
@@ -152,6 +161,8 @@ class ClientTest extends AbstractTesting
 
     public function testResponseDataIsEmpty()
     {
+        $this->expectNotToPerformAssertions();
+
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         try {

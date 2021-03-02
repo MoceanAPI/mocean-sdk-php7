@@ -17,7 +17,7 @@ class MapFactoryTest extends TestCase
      */
     protected $client;
 
-    public function setUp()
+    public function setUp():void
     {
         $this->client = new Client(new Client\Credentials\Basic('test_api_key', 'test_api_secret'));
         $this->factory = new MapFactory([
@@ -45,6 +45,7 @@ class MapFactoryTest extends TestCase
      */
     public function testGetClientWithoutSettingClient()
     {
+        $this->expectException(\RuntimeException::class);
         (new \MoceanTest\Client\TempObject())->getClient();
     }
 
@@ -53,6 +54,7 @@ class MapFactoryTest extends TestCase
      */
     public function testGetNonExistApiFromFactory()
     {
+        $this->expectException(\RuntimeException::class);
         $this->factory->getApi('dummy');
     }
 
@@ -71,6 +73,7 @@ class MapFactoryTest extends TestCase
      */
     public function testCallNonExistApiWithProperty()
     {
+        $this->expectException(\RuntimeException::class);
         $this->client->helloworld;
     }
 
@@ -79,6 +82,7 @@ class MapFactoryTest extends TestCase
      */
     public function testCallNonExistApiWithMethod()
     {
+        $this->expectException(\RuntimeException::class);
         $this->client->helloworld();
     }
 }

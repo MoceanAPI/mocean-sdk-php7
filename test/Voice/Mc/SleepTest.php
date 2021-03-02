@@ -42,6 +42,9 @@ class SleepTest extends AbstractTesting
      */
     public function testIfRequiredFieldNotSet()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("missing expected key `duration` from Mocean\Voice\Mc\Sleep");
+
         $req = new \Mocean\Voice\Mc\Sleep();
         $req->getRequestData();
     }

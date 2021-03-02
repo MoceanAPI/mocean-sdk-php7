@@ -20,7 +20,7 @@ class VoiceTest extends AbstractTesting
     protected $jsonResponse;
     protected $xmlResponse;
 
-    protected function setUp()
+    protected function setUp():void
     {
         $this->mockJsonResponseStr = $this->getResponseString('voice.json');
         $this->mockXmlResponseStr = $this->getResponseString('voice.xml');
@@ -73,6 +73,8 @@ class VoiceTest extends AbstractTesting
 
     public function testObjectErrorWhenCreateFromResponseWithStatus0()
     {
+        $this->expectNotToPerformAssertions();
+
         try {
             \Mocean\Voice\Voice::createFromResponse($this->getResponseString('error_response.json'), $this->defaultVersion);
             $this->fail();
@@ -104,11 +106,11 @@ class VoiceTest extends AbstractTesting
     private function objectTesting($res)
     {
         $this->assertEquals($res->calls[0]->status, '0');
-        $this->assertEquals($res->calls[0]->{'session-uuid'}, 'xxx-xxx-xxx-xxx');
-        $this->assertEquals($res->calls[0]->{'call-uuid'}, 'xxx-xxx-xxx-xxx');
+        $this->assertEquals($res->calls[0]->{'session_uuid'}, 'xxx-xxx-xxx-xxx');
+        $this->assertEquals($res->calls[0]->{'call_uuid'}, 'xxx-xxx-xxx-xxx');
 
         $this->assertEquals($res['calls'][0]['status'], '0');
-        $this->assertEquals($res['calls'][0]['session-uuid'], 'xxx-xxx-xxx-xxx');
-        $this->assertEquals($res['calls'][0]['call-uuid'], 'xxx-xxx-xxx-xxx');
+        $this->assertEquals($res['calls'][0]['session_uuid'], 'xxx-xxx-xxx-xxx');
+        $this->assertEquals($res['calls'][0]['call_uuid'], 'xxx-xxx-xxx-xxx');
     }
 }

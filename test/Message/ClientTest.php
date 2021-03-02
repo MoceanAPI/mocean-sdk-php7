@@ -64,6 +64,8 @@ class ClientTest extends AbstractTesting
      */
     public function testSendParamsNotImplementModelInterfaceAndNotArray()
     {
+        $this->expectException(\RuntimeException::class);
+
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         $client->message()->send('inputString');
@@ -74,6 +76,8 @@ class ClientTest extends AbstractTesting
      */
     public function testSearchParamsNotImplementModelInterfaceAndNotArray()
     {
+        $this->expectException(\RuntimeException::class);
+
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         $client->message()->search('inputString');
@@ -85,6 +89,9 @@ class ClientTest extends AbstractTesting
      */
     public function testSendRequiredRequestParamNotPresent()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->getExpectedExceptionMessage("missing expected key `mocean-to`");
+
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         $client->message()->send([]);
@@ -96,6 +103,8 @@ class ClientTest extends AbstractTesting
      */
     public function testSearchRequiredRequestParamNotPresent()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->getExpectedExceptionMessage("missing expected key `mocean-msgid`");
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         $client->message()->search([]);
@@ -103,6 +112,8 @@ class ClientTest extends AbstractTesting
 
     public function testResponseDataIsEmpty()
     {
+        $this->expectNotToPerformAssertions();
+
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         try {

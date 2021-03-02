@@ -18,7 +18,7 @@ class BalanceTest extends AbstractTesting
     protected $jsonResponse;
     protected $xmlResponse;
 
-    protected function setUp()
+    protected function setUp():void
     {
         $this->mockJsonResponseStr = $this->getResponseString('balance.json');
         $this->mockXmlResponseStr = $this->getResponseString('balance.xml');
@@ -60,6 +60,7 @@ class BalanceTest extends AbstractTesting
 
     public function testObjectErrorWhenCreateFromResponseWithStatus0()
     {
+        $this->expectNotToPerformAssertions();
         try {
             \Mocean\Account\Balance::createFromResponse($this->getResponseString('error_response.json'), $this->defaultVersion);
             $this->fail();

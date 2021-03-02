@@ -18,7 +18,7 @@ class SendCodeTest extends AbstractTesting
     protected $jsonResponse;
     protected $xmlResponse;
 
-    protected function setUp()
+    protected function setUp():void
     {
         $this->mockJsonResponseStr = $this->getResponseString('send_code.json');
         $this->mockXmlResponseStr = $this->getResponseString('send_code.xml');
@@ -74,6 +74,8 @@ class SendCodeTest extends AbstractTesting
 
     public function testObjectErrorWhenCreateFromResponseWithStatus0()
     {
+        $this->expectNotToPerformAssertions();
+
         try {
             \Mocean\Verify\SendCode::createFromResponse($this->getResponseString('error_response.json'), $this->defaultVersion);
             $this->fail();
@@ -86,6 +88,8 @@ class SendCodeTest extends AbstractTesting
      */
     public function testResendWithoutReqId()
     {
+        $this->expectException(\Mocean\Client\Exception\Exception::class);
+
         (new \Mocean\Verify\SendCode())->resend();
     }
 

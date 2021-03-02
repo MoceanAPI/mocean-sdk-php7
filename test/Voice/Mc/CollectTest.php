@@ -56,6 +56,9 @@ class CollectTest extends AbstractTesting
      */
     public function testIfRequiredFieldNotSet()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("missing expected key `event-url` from Mocean\Voice\Mc\Collect");
+
         $req = new \Mocean\Voice\Mc\Collect();
         $req->getRequestData();
     }

@@ -18,7 +18,7 @@ class NumberLookupTest extends AbstractTesting
     protected $jsonResponse;
     protected $xmlResponse;
 
-    protected function setUp()
+    protected function setUp():void
     {
         $this->mockJsonResponseStr = $this->getResponseString('number_lookup.json');
         $this->mockXmlResponseStr = $this->getResponseString('number_lookup.xml');
@@ -67,6 +67,8 @@ class NumberLookupTest extends AbstractTesting
 
     public function testObjectErrorWhenCreateFromResponseWithStatus0()
     {
+        $this->expectNotToPerformAssertions();
+
         try {
             \Mocean\NumberLookup\NumberLookup::createFromResponse($this->getResponseString('error_response.json'), $this->defaultVersion);
             $this->fail();

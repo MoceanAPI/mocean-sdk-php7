@@ -43,6 +43,7 @@ class BasicCredentialsTest extends AbstractTesting
      */
     public function testExplicitSetData()
     {
+        $this->expectException(\RuntimeException::class);
         $credentials = new \Mocean\Client\Credentials\Basic($this->apiKey, $this->apiSecret);
         $credentials['mocean-api-key'] = 'test_api_key';
 
@@ -54,6 +55,7 @@ class BasicCredentialsTest extends AbstractTesting
      */
     public function testExplicitUnsetData()
     {
+        $this->expectException(\RuntimeException::class);
         $credentials = new \Mocean\Client\Credentials\Basic($this->apiKey, $this->apiSecret);
         unset($credentials['mocean-api-key']);
     }
