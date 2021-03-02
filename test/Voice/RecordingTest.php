@@ -26,6 +26,8 @@ class RecordingTest extends AbstractTesting
 
     public function testObjectErrorWhenCreateFromResponseWithStatus0()
     {
+        $this->expectNotToPerformAssertions();
+
         try {
             \Mocean\Voice\Recording::createFromResponse($this->getResponseString('error_response.json'), $this->defaultVersion);
             $this->fail();

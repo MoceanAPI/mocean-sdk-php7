@@ -43,6 +43,9 @@ class TgRequestContactTest extends AbstractTesting
      */
     public function testRequiredField()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("missing expected key `to` from Mocean\Command\Mc\TgRequestContact");
+
         $req = new TgRequestContact();
         $req->getRequestData();
     }

@@ -9,9 +9,11 @@
 namespace MoceanTest;
 
 use GuzzleHttp\Psr7\Request;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class MoceanClientTest extends AbstractTesting
 {
+
     public function testCreateMoceanClientUsingBasicCredentials()
     {
         $moceanClient = new \Mocean\Client(new \Mocean\Client\Credentials\Basic($this->apiKey, $this->apiSecret));
@@ -52,6 +54,7 @@ class MoceanClientTest extends AbstractTesting
      */
     public function testMoceanCreateWithObjectOtherThanCredentialsInterface()
     {
+        $this->expectException(\RuntimeException::class);
         new \Mocean\Client(new DummyCredentials());
     }
 
@@ -70,7 +73,7 @@ class MoceanClientTest extends AbstractTesting
 
     public function testCustomHttpClient()
     {
-        $client = new \Http\Adapter\Guzzle6\Client();
+        $client = new \Http\Adapter\Guzzle7\Client();
 
         $mocean = new \Mocean\Client(
             new \Mocean\Client\Credentials\Basic($this->apiKey, $this->apiSecret),

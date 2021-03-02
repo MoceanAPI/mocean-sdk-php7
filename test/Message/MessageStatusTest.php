@@ -18,7 +18,7 @@ class MessageStatusTest extends AbstractTesting
     protected $jsonResponse;
     protected $xmlResponse;
 
-    protected function setUp()
+    protected function setUp():void
     {
         $this->mockJsonResponseStr = $this->getResponseString('message_status.json');
         $this->mockXmlResponseStr = $this->getResponseString('message_status.xml');
@@ -64,6 +64,8 @@ class MessageStatusTest extends AbstractTesting
 
     public function testObjectErrorWhenCreateFromResponseWithStatus0()
     {
+        $this->expectNotToPerformAssertions();
+
         try {
             \Mocean\Message\MessageStatus::createFromResponse($this->getResponseString('error_response.json'), $this->defaultVersion);
             $this->fail();

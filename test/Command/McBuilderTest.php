@@ -16,6 +16,8 @@ class McBuilderTest extends AbstractTesting
 
     public function testAdd()
     {
+        $this->expectNotToPerformAssertions();
+
         $tgSendText = Mc::tgSendText()
                             ->setFrom("botusername")
                             ->setTo("123456789")

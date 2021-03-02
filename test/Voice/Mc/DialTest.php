@@ -48,6 +48,9 @@ class DialTest extends AbstractTesting
      */
     public function testIfRequiredFieldNotSet()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("missing expected key `to` from Mocean\Voice\Mc\Dial");
+
         $req = new \Mocean\Voice\Mc\Dial();
         $req->getRequestData();
     }

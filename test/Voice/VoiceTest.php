@@ -73,6 +73,8 @@ class VoiceTest extends AbstractTesting
 
     public function testObjectErrorWhenCreateFromResponseWithStatus0()
     {
+        $this->expectNotToPerformAssertions();
+
         try {
             \Mocean\Voice\Voice::createFromResponse($this->getResponseString('error_response.json'), $this->defaultVersion);
             $this->fail();

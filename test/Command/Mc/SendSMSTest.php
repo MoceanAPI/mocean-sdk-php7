@@ -38,6 +38,9 @@ class SendSMSTest extends AbstractTesting
      */
     public function testRequiredField()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("missing expected key `to` from Mocean\Command\Mc\SendSMS");
+
         $req = new SendSMS();
         $req->getRequestData();
     }

@@ -48,6 +48,7 @@ class ClientTest extends AbstractTesting
      */
     public function testGetBalanceParamsNotImplementModelInterfaceAndNotArray()
     {
+        $this->expectException(\RuntimeException::class);
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         $client->account()->getBalance('inputString');
@@ -58,6 +59,7 @@ class ClientTest extends AbstractTesting
      */
     public function testGetPricingParamsNotImplementModelInterfaceAndNotArray()
     {
+        $this->expectException(\RuntimeException::class);
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         $client->account()->getPricing('inputString');
@@ -65,6 +67,8 @@ class ClientTest extends AbstractTesting
 
     public function testResponseDataIsEmpty()
     {
+        $this->expectNotToPerformAssertions();
+
         $client = $this->makeMoceanClientWithEmptyResponse();
 
         try {

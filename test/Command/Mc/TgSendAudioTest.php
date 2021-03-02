@@ -39,6 +39,9 @@ class TgSendAudioTest extends AbstractTesting
      */
     public function testRequiredField()
     {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("missing expected key `to` from Mocean\Command\Mc\TgSendAudio");
+
         $req = new TgSendAudio();
         $req->getRequestData();
     }
