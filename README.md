@@ -1,6 +1,6 @@
 MoceanAPI Client Library for PHP 
 ============================
-[![Latest Stable Version](https://img.shields.io/packagist/v/mocean/client.svg)](https://packagist.org/packages/mocean/client)
+[![Latest Stable Version](https://img.shields.io/packagist/v/mocean/client.svg)](https://packagist.org/packages/mocean/client7)
 [![Build Status](https://travis-ci.com/MoceanAPI/mocean-sdk-php7.svg?branch=master)](https://travis-ci.com/MoceanAPI/mocean-sdk-php7)
 [![codecov](https://img.shields.io/codecov/c/github/MoceanAPI/mocean-sdk-php.svg)](https://codecov.io/gh/MoceanAPI/mocean-sdk-php)
 [![codacy](https://img.shields.io/codacy/grade/7a1e94f1c1ea40fdbfa362ecbbc4b2f3.svg)](https://app.codacy.com/project/MoceanAPI/mocean-sdk-php/dashboard)
