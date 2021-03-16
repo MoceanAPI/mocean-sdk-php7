@@ -13,6 +13,7 @@ use Prophecy\PhpUnit\ProphecyTrait;
 
 class MoceanClientTest extends AbstractTesting
 {
+    use ProphecyTrait;
 
     public function testCreateMoceanClientUsingBasicCredentials()
     {
