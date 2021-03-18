@@ -23,6 +23,7 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
+          coverage: xdebug2
       - uses: php-actions/composer@v5
 
       - name: Run phpunit
