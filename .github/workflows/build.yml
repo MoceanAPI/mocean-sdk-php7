@@ -26,16 +26,12 @@ jobs:
       - uses: php-actions/composer@v5
 
       - name: Run phpunit
-        run: vendor/bin/phpunit --coverage-xml=coverage.xml
-
-      - name: find coverage.xml
-        run: find ./ -type f -name "coverage.xml"
+        run: vendor/bin/phpunit --coverage-xml=coverage.xm
       
-      - name: cat coverage.xml
-        run: cat coverage.xml
 
-      - name: ls vendor/bin/
-        run: ls vendor/bin
+
+      - name: ls ./coverage.xml/
+        run: ls -lah ./coverage.xml/
 
 
       # - name: Run codecov
