@@ -32,13 +32,10 @@ jobs:
         uses: codecov/codecov-action@v1
         with: 
           token: ${{ secrets.CODECOV_TOKEN }}
-          directory: ./coverage/reports/
+          files: ./coverage1.xml
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: false
-          path_to_write_report: ./coverage/codecov_report.txt
           verbose: true
 
-      - name: Upload code coverage
-        run: bash <(curl -s https://codecov.io/bash)
-
+  
