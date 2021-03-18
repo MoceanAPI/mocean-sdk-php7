@@ -15,7 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: [7.3, 7.4, 8.0]
+        # php: [7.3, 7.4, 8.0]
+        php: [7.3]
 
     steps:
       - uses: actions/checkout@v1
@@ -24,18 +25,21 @@ jobs:
           php-version: ${{ matrix.php }}
       - uses: php-actions/composer@v5
 
-      - name: run phpunit
+      - name: Run phpunit
         run: vendor/bin/phpunit --coverage-xml=coverage.xml
 
+      - name: find coverage.xml
+        run: find ./ -type f -name "coverage.xml"
 
-      - name: run codecov
-        uses: codecov/codecov-action@v1
-        with: 
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.xml
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: false
-          verbose: true
+      # - name: Run codecov
+      #   uses: codecov/codecov-action@v1
+      #   with: 
+      #     token: ${{ secrets.CODECOV_TOKEN }}
+      #     files: coverage.xml
+      #     flags: unittests
+      #     name: codecov-umbrella
+      #     fail_ci_if_error: false
+      #     verbose: true
 
+     
   
