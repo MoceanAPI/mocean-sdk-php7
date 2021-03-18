@@ -26,7 +26,7 @@ jobs:
       - uses: php-actions/composer@v5
 
       - name: Run phpunit
-        run: vendor/bin/phpunit --coverage-xml=coverage.xm
+        run: vendor/bin/phpunit --coverage-xml=coverage.xml
       
 
 
