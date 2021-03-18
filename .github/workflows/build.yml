@@ -24,8 +24,8 @@ jobs:
           php-version: ${{ matrix.php }}
       - uses: php-actions/composer@v5
 
-      - name: phpunit
-        uses: php-actions/phpunit@v2
+      - name: run phpunit
+        run: vendor/bin/phpunit 
 
 
       - name: run codecov
