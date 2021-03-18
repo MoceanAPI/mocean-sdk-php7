@@ -30,6 +30,13 @@ jobs:
 
       - name: find coverage.xml
         run: find ./ -type f -name "coverage.xml"
+      
+      - name: cat coverage.xml
+        run: cat coverage.xml
+
+      - name: ls vendor/bin/
+        run: ls vendor/bin
+
 
       # - name: Run codecov
       #   uses: codecov/codecov-action@v1
