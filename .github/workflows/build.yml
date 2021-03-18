@@ -26,23 +26,18 @@ jobs:
       - uses: php-actions/composer@v5
 
       - name: Run phpunit
-        run: vendor/bin/phpunit --coverage-xml=coverage.xml
+        run: vendor/bin/phpunit --coverage-xml=coverage
       
 
-
-      - name: ls ./coverage.xml/
-        run: ls -lah ./coverage.xml/
-
-
-      # - name: Run codecov
-      #   uses: codecov/codecov-action@v1
-      #   with: 
-      #     token: ${{ secrets.CODECOV_TOKEN }}
-      #     files: coverage.xml
-      #     flags: unittests
-      #     name: codecov-umbrella
-      #     fail_ci_if_error: false
-      #     verbose: true
+      - name: Run codecov
+        uses: codecov/codecov-action@v1
+        with: 
+          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: ./coverage
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+          verbose: true
 
      
   
