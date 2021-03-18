@@ -7,6 +7,16 @@ use Mocean\Command\Commander;
 
 class CommanderTest extends AbstractTesting
 {
+
+    protected function setUp():void
+    {
+        $this->mockJsonResponseStr = $this->getResponseString('command.json');
+        $this->mockXmlResponseStr = $this->getResponseString('command.xml');
+
+        $this->jsonResponse = \Mocean\Command\Commander::createFromResponse($this->mockJsonResponseStr, $this->defaultVersion);
+        $this->xmlResponse = \Mocean\Command\Commander::createFromResponse($this->mockXmlResponseStr, $this->defaultVersion);
+    }
+
     public function testRequestDataParams()
     {
         $params = [
