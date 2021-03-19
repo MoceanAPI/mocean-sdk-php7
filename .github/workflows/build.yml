@@ -4,38 +4,38 @@ on:
     branches: [master]
     paths-ignore: 
       - "**.md"
-      - ".github/workflows/**"
+
   pull_request:
     branches: [master]
     paths-ignore: 
       - "**.md"
-      - ".github/workflows/**"
 
 jobs:
   build-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: [7.2, 7.3, 7.4, 8.0]
+        php: [7.3, 7.4, 8.0]
 
     steps:
       - uses: actions/checkout@v1
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
+          coverage: xdebug2
       - uses: php-actions/composer@v5
 
-      - name: phpunit
-        uses: php-actions/phpunit@v2
+      - name: Run phpunit
+        run: vendor/bin/phpunit --coverage-clover="coverage.xml"
       
-      - name: codecov test
+
+      - name: Run codecov
         uses: codecov/codecov-action@v1
         with: 
-          ref: ${{ github.head_ref }}
-          token: ${{ secrets.CODECOV_TOKEN }} 
-          verbose: true 
-    
-
-
-
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+          verbose: true
+     
   
