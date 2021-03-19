@@ -38,9 +38,5 @@ jobs:
           name: codecov-umbrella
           fail_ci_if_error: false
           verbose: true
-
-      - name: ls -lah ./
-        run: ls -lah ./
-
      
   
