@@ -91,16 +91,16 @@ class VoiceTest extends AbstractTesting
             ],
         ];
         $voice = new \Mocean\Voice\Voice('testing to', $mc);
-        $this->assertEquals($voice->getRequestData()['mocean-command'], json_encode($mc));
+        $this->assertEquals($voice->getRequestData()['mocean-command'], json_encode($mc,JSON_UNESCAPED_SLASHES));
 
         $mcBuilder = new McBuilder();
         $mcBuilder->add(Mc::play()->setFiles($mc[0]['file']));
         $voice->setMoceanCommand($mcBuilder);
-        $this->assertEquals($voice->getRequestData()['mocean-command'], json_encode($mc));
+        $this->assertEquals($voice->getRequestData()['mocean-command'], json_encode($mc,JSON_UNESCAPED_SLASHES));
 
         $playMc = Mc::play()->setFiles($mc[0]['file']);
         $voice->setMoceanCommand($playMc);
-        $this->assertEquals($voice->getRequestData()['mocean-command'], json_encode($mc));
+        $this->assertEquals($voice->getRequestData()['mocean-command'], json_encode($mc,JSON_UNESCAPED_SLASHES));
     }
 
     private function objectTesting($res)
