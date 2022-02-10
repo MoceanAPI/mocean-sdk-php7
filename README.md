@@ -8,7 +8,7 @@ MoceanAPI Client Library for PHP
 [![License](https://img.shields.io/packagist/l/mocean/client.svg)](https://packagist.org/packages/mocean/client)
 [![Total Downloads](https://img.shields.io/packagist/dt/mocean/client.svg)](https://packagist.org/packages/mocean/client)
 
-*This library requires a minimum PHP version of 5.5*
+*This library requires a minimum PHP version of 7.3*
 
 This is the PHP client library for use Mocean's API. To use this, you'll need a Mocean account. Sign up [for free at 
 moceanapi.com][signup].

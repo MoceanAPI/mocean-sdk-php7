@@ -77,11 +77,11 @@ class Voice implements ModelInterface, AsRequest, AsResponse
     public function setMoceanCommand($moceanCommand)
     {
         if ($moceanCommand instanceof McBuilder) {
-            $this->requestData['mocean-command'] = json_encode($moceanCommand->build(), JSON_UNESCAPED_UNICODE);
+            $this->requestData['mocean-command'] = json_encode($moceanCommand->build(), JSON_UNESCAPED_SLASHES);
         } elseif ($moceanCommand instanceof AbstractMc) {
-            $this->requestData['mocean-command'] = json_encode([$moceanCommand->getRequestData()], JSON_UNESCAPED_UNICODE);
+            $this->requestData['mocean-command'] = json_encode([$moceanCommand->getRequestData()], JSON_UNESCAPED_SLASHES);
         } elseif (is_array($moceanCommand)) {
-            $this->requestData['mocean-command'] = json_encode($moceanCommand, JSON_UNESCAPED_UNICODE);
+            $this->requestData['mocean-command'] = json_encode($moceanCommand, JSON_UNESCAPED_SLASHES);
         } else {
             $this->requestData['mocean-command'] = $moceanCommand;
         }
